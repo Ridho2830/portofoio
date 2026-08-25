@@ -1,362 +1,800 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portofolio I N Y A</title>
-
-    <!-- Font: Space Grotesk -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&display=swap"
-      rel="stylesheet"
+    <title>Rafly Ridho' Sukardi | Pixel Portfolio & Web Dev</title>
+    <meta
+      name="description"
+      content="Portofolio Rafly Ridho' Sukardi - Web Developer dan Asisten Praktikum Informatika Universitas Mataram dengan tema Pixel Art Retro."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Background Animation -->
-    <div class="bg-animation">
-      <div class="gradient-orb orb1"></div>
-      <div class="gradient-orb orb2"></div>
-      <div class="gradient-orb orb3"></div>
-    </div>
-    <div class="grid-overlay"></div>
+    <!-- Custom Pixel Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-dot"></div>
+    <!-- Retro CRT Scanline Overlay & Background Grid -->
+    <div class="crt-overlay" id="crt-overlay"></div>
+    <div class="pixel-grid-bg"></div>
+    <canvas id="particles-canvas"></canvas>
 
-    <!-- Navigation -->
+    <!-- Navigation Header -->
     <nav>
-      <div class="logo">◆ Rafly Ridho' Sukardi</div>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#skills">Keterampilan</a></li>
-        <li><a href="#projects">Proyek</a></li>
-        <li><a href="#experience">Pengalaman</a></li>
-        <li><a href="#contact">Kontak</a></li>
-      </ul>
-      <button id="theme-toggle" aria-label="Toggle theme">☀️</button>
+      <div class="nav-container">
+        <a href="#hero" class="nav-brand">
+          <div class="pixel-avatar-mini">👾</div>
+          <span class="brand-name">RAFLY RIDHO'</span>
+        </a>
+
+        <!-- HUD Mini Stats -->
+        <div class="nav-hud-stats">
+          <div class="hud-item">
+            <span class="hud-label">HP</span>
+            <div class="hud-bar"><div class="hud-fill"></div></div>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">MP</span>
+            <div class="hud-bar"><div class="hud-fill mp"></div></div>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">LVL:</span>
+            <span class="hud-label">ASISTEN</span>
+          </div>
+        </div>
+
+        <ul class="nav-links" id="nav-menu">
+          <li><a href="#hero">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#skills">SKILLS</a></li>
+          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="#experience">ACHIEVEMENTS</a></li>
+          <li><a href="#contact">SAVE POINT</a></li>
+        </ul>
+
+        <div class="nav-controls">
+          <button id="sfx-toggle" class="icon-toggle-btn" aria-label="Toggle 8-bit Audio">
+            🔊 SFX
+          </button>
+          <button id="crt-toggle" class="icon-toggle-btn" aria-label="Toggle CRT Scanline">
+            📺 CRT
+          </button>
+          <button id="theme-toggle" class="icon-toggle-btn" aria-label="Toggle Theme">
+            🌓 MODE
+          </button>
+          <button id="menu-toggle" class="menu-toggle-btn" aria-label="Open Menu">
+            ☰
+          </button>
+        </div>
+      </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-      <div class="particles" id="particles"></div>
-      <span class="hero-badge"
-        >✦ Web Developer • Asisten Praktikum Informatika</span
-      >
-      <h1 class="hero-title">STRUCTURED<br />INTELLIGENCE</h1>
-      <p class="hero-subtitle">
-        Membangun solusi web yang efisien dan andal dengan pendekatan
-        terstruktur dari ilmu komputer.
-      </p>
-      <div class="cta-group">
-        <a href="#projects" class="cta-button">Lihat Proyek</a>
-        <a href="#contact" class="cta-button cta-button-secondary"
-          >Hubungi Saya</a
-        >
-      </div>
-    </section>
+    <!-- Main Container -->
+    <main class="main-wrapper">
+      <!-- Hero Section -->
+      <section id="hero" class="pixel-section hero-wrapper">
+        <div class="hero-box pixel-corner-deco">
+          <div class="hero-top-badge">
+            <span class="badge-dot"></span>
+            <span>PLAYER 1 READY • WEB DEVELOPER & LAB ASSISTANT</span>
+          </div>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-      <div class="section-content">
-        <div class="section-header">
-          <span class="section-label">◆ Tentang Saya</span>
-          <h2 class="section-title">Profesional & Akademik</h2>
+          <h1 class="hero-main-title">
+            STRUCTURED<br />
+            <span class="hero-highlight">INTELLIGENCE</span>
+          </h1>
+
+          <p class="hero-desc">
+            Membangun arsitektur web modern, efisien, dan andal dengan pendekatan
+            terstruktur ilmu komputer serta estetika retro pixel.
+          </p>
+
+          <div class="hero-dialog-box">
+            <span class="dialog-icon">💬</span>
+            <span id="hero-dialog-text">
+              "Selamat datang di portofolio interaktif! Jelajahi proyek & pencapaian saya."
+            </span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#projects" class="pixel-btn">
+              <span>⚔️</span> START QUEST (PROYEK)
+            </a>
+            <a href="#experience" class="pixel-btn pixel-btn-yellow">
+              <span>🏆</span> ACHIEVEMENTS
+            </a>
+            <a href="#contact" class="pixel-btn pixel-btn-secondary">
+              <span>📜</span> TALK NPC (KONTAK)
+            </a>
+          </div>
         </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="pixel-section">
+        <div class="section-header-box">
+          <span class="section-tag">PROFIL KARAKTER</span>
+          <h2 class="section-title">ABOUT ME</h2>
+          <span class="section-subinfo">STATUS: ACTIVE DEVELOPER</span>
+        </div>
+
         <div class="about-grid">
-          <div class="about-text-wrapper">
-            <p>
-              Saya adalah Web Developer dengan fokus pada pengembangan aplikasi
-              yang efisien, scalable, dan user-friendly. Sebagai Asisten
-              Praktikum Informatika di Universitas Mataram, saya aktif
-              membimbing mahasiswa dalam mata kuliah pemrograman web, algoritma,
-              struktur data, dan basis data.
-            </p>
-            <p>
-              Pendekatan saya menggabungkan pemikiran terstruktur dari ilmu
-              komputer dengan praktik terbaik industri untuk menghasilkan solusi
-              teknologi yang intelligent dan reliable.
-            </p>
-          </div>
-          <div class="profile-image">
-            <img
-              src="https://cdn.get.tech/blog/wp-content/uploads/2020/02/tech-student-portfolio.jpg"
-              alt="Foto Profil"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-      <div class="section-content">
-        <div class="section-header">
-          <span class="section-label">◆ Keterampilan</span>
-          <h2 class="section-title">Teknis & Akademik</h2>
-        </div>
-        <div class="skills-grid">
-          <span class="skill-tag">HTML/CSS/JS</span>
-          <span class="skill-tag">React.js</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">TypeScript</span>
-          <span class="skill-tag">Algoritma & Struktur Data</span>
-          <span class="skill-tag">Basis Data</span>
-          <span class="skill-tag">UI/UX Design</span>
-          <span class="skill-tag">Git & CI/CD</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <div class="section-content">
-        <div class="section-header">
-          <span class="section-label">◆ Portfolio</span>
-          <h2 class="section-title">Proyek Terpilih</h2>
-        </div>
-        <div class="work-grid">
-          <div class="work-item">
-            <div
-              class="work-image"
-              style="
-                background-image: url('assets/wms-pln.png');
-              "
-            ></div>
-            <div class="work-info">
-              <div class="work-number">PROJECT 01</div>
-              <h3 class="work-title">WMS PLN</h3>
-              <p class="work-description">
-                Sistem Manajemen Gudang (Warehouse Management System) untuk operasional PLN.
-              </p>
-              <div class="work-tags">
-                <span class="work-tag">Web App</span>
-                <span class="work-tag">Management</span>
+          <!-- Avatar Card -->
+          <div class="avatar-card pixel-corner-deco">
+            <div class="avatar-frame">
+              <img
+                src="assets/Rafly Ridho_ Sukardi.png"
+                alt="Rafly Ridho' Sukardi"
+              />
+            </div>
+            <div class="avatar-meta">
+              <h3 class="avatar-title">Rafly Ridho' S.</h3>
+              <p class="avatar-role">INFORMATICS LAB ASST.</p>
+              <div class="avatar-status-list">
+                <div>AFFIL: <span>UNRAM</span></div>
+                <div>CLASS: <span>FULL-STACK</span></div>
+                <div>FOCUS: <span>WEB & AR</span></div>
+                <div>GUILD: <span>HMIF FT-UNRAM</span></div>
               </div>
             </div>
           </div>
 
-          <div class="work-item">
-            <div
-              class="work-image"
-              style="
-                background-image: url('assets/asak.png');
-              "
-            ></div>
-            <div class="work-info">
-              <div class="work-number">PROJECT 02</div>
-              <h3 class="work-title">ASAK</h3>
-              <p class="work-description">
-                Media Pembelajaran Aksara Sasak (ASAK) Berbasis Augmented Reality.
+          <!-- Dialogue / Story Card -->
+          <div class="about-dialogue-card pixel-corner-deco">
+            <div class="rpg-text-box">
+              <h3>◆ BIOGRAFI & FILOSOFI KODING</h3>
+              <p>
+                Saya adalah seorang <strong>Web Developer</strong> dengan fokus pada
+                pengembangan aplikasi yang efisien, scalable, dan user-friendly. 
+                Sebagai <strong>Asisten Praktikum Informatika di Universitas Mataram</strong>,
+                saya aktif mendampingi dan membimbing mahasiswa dalam eksplorasi
+                pemrograman web, algoritma, struktur data, dan sistem basis data.
               </p>
-              <div class="work-tags">
-                <span class="work-tag">Augmented Reality</span>
-                <span class="work-tag">Education</span>
-              </div>
+              <p>
+                Pendekatan saya menggabungkan logika komputasional yang presisi
+                dengan praktik industri terbaik untuk menghasilkan produk digital
+                yang fungsional, tangguh, dan bernilai guna tinggi.
+              </p>
             </div>
-          </div>
 
-          <div class="work-item">
-            <div
-              class="work-image"
-              style="
-                background-image: url('assets/reservasikampus.png');
-              "
-            ></div>
-            <div class="work-info">
-              <div class="work-number">PROJECT 03</div>
-              <h3 class="work-title">Reservasi Kampus</h3>
-              <p class="work-description">
-                Sistem informasi untuk manajemen dan pemesanan fasilitas kampus secara efisien.
-              </p>
-              <div class="work-tags">
-                <span class="work-tag">Web App</span>
-                <span class="work-tag">Booking System</span>
+            <div class="rpg-stat-grid">
+              <div class="rpg-stat-item">
+                <div class="stat-title">ROLE FOCUS</div>
+                <div class="stat-val">FULL-STACK</div>
+              </div>
+              <div class="rpg-stat-item">
+                <div class="stat-title">AWARDS WON</div>
+                <div class="stat-val">2x JUARA INOVASI</div>
+              </div>
+              <div class="rpg-stat-item">
+                <div class="stat-title">TEACHING EXP</div>
+                <div class="stat-val">ALPRO & SISDIG</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Experience & Awards Section -->
-    <section id="experience" class="section">
-      <div class="section-content">
-        <div class="section-header">
-          <span class="section-label">◆ Pengalaman & Penghargaan</span>
-          <h2 class="section-title">Jejak Profesional</h2>
+      <!-- Skills Section -->
+      <section id="skills" class="pixel-section">
+        <div class="section-header-box">
+          <span class="section-tag">INVENTORY SKILLS</span>
+          <h2 class="section-title">ABILITY & TECH STACK</h2>
+          <span class="section-subinfo">SKILL TREE: MAXED OUT</span>
         </div>
-        <div class="experience-grid">
-          <!-- Item 1: Juara II Lomba Inovasi Daerah Mataram 2025 -->
-          <div class="experience-card">
-            <div class="experience-year">Agustus 2025</div>
-            <h3>Juara II Lomba Inovasi Daerah Mataram 2025</h3>
-            <p>
-              Inovasi ASAK (Media Pembelajaran Aksara Sasak Berbasis Augmented
-              Reality) - Kategori Inovasi Daerah Urusan Lainnya pada HUT Kota
-              Mataram ke-32.
-            </p>
-            <img
-              src="assets/SERTIFIKAT 3.jpg"
-              alt="Sertifikat Juara II Lomba Inovasi Mataram 2025"
-              class="cert-image"
-            />
-            <!-- <a
-              href="[GANTI: path/to/SERTIFIKAT 3.pdf]"
-              download
-              class="cert-link"
-              >Download Sertifikat PDF</a
-            > -->
+
+        <div class="skills-inventory-grid">
+          <!-- Skill Slot 1 -->
+          <div class="skill-slot">
+            <div class="skill-head">
+              <span class="skill-icon">🌐</span>
+              <span class="skill-level-badge">LVL 95</span>
+            </div>
+            <h3 class="skill-name">HTML5 / CSS3 / JS</h3>
+            <p class="skill-cat">Core Web Standard</p>
+            <div class="skill-meter"><div class="skill-meter-fill" style="width: 95%;"></div></div>
           </div>
 
-          <!-- Item 2: Juara Bersama BudayaGo! Kompetisi Inovasi Digital 2025 -->
-          <div class="experience-card">
-            <div class="experience-year">Desember 2025</div>
-            <h3>Juara Bersama Kategori Pelajar/Mahasiswa - BudayaGo! 2025</h3>
-            <p>
-              Kompetisi Inovasi Digital Budaya Indonesia untuk ASAK (bersama
-              tim: Muhammad Rendi Maulana, Muh. Rizky Destiawansyah, Aliya
-              Rahmnawati, Ikrima Fina Hayati).
-            </p>
-            <img
-              src="assets/SERTIFIKAT JUARA BERSAMA - ASAK.jpg"
-              alt="Sertifikat Juara Bersama BudayaGo! 2025"
-              class="cert-image"
-            />
-            <!-- <a
-              href="[GANTI: path/to/SERTIFIKAT JUARA BERSAMA - ASAK.pdf]"
-              download
-              class="cert-link"
-              >Download Sertifikat PDF</a
-            > -->
+          <!-- Skill Slot 2 -->
+          <div class="skill-slot">
+            <div class="skill-head">
+              <span class="skill-icon">⚛️</span>
+              <span class="skill-level-badge">LVL 90</span>
+            </div>
+            <h3 class="skill-name">React.js & Next.js</h3>
+            <p class="skill-cat">Frontend Architecture</p>
+            <div class="skill-meter"><div class="skill-meter-fill" style="width: 90%;"></div></div>
           </div>
 
-          <!-- Item 3: Mentor Kelompok Belajar Algoritma dan Pemrograman -->
-          <div class="experience-card">
-            <div class="experience-year">Juni 2025</div>
-            <h3>
-              Mentor Kelompok Belajar Mata Kuliah Algoritma dan Pemrograman
-            </h3>
-            <p>
-              Partisipasi sebagai Mentor di HMIF FT-UNRAM, diakui oleh Ketua
-              Program Studi Teknik Informatika.
-            </p>
-            <img
-              src="assets/Sertifikat mentor Kelompok Belajar Ridho Alpro.jpg"
-              alt="Sertifikat Mentor Kelompok Belajar Alpro"
-              class="cert-image"
-            />
-            <!-- <a
-              href="[GANTI: path/to/Sertifikat mentor Kelompok Belajar Ridho Alpro.pdf]"
-              download
-              class="cert-link"
-              >Download Sertifikat PDF</a
-            > -->
+          <!-- Skill Slot 3 -->
+          <div class="skill-slot">
+            <div class="skill-head">
+              <span class="skill-icon">🟢</span>
+              <span class="skill-level-badge">LVL 88</span>
+            </div>
+            <h3 class="skill-name">Node.js & Express</h3>
+            <p class="skill-cat">Backend Engine</p>
+            <div class="skill-meter"><div class="skill-meter-fill" style="width: 88%;"></div></div>
           </div>
 
-          <!-- Item 4: Programmer di WINT 2025 Young Entrepreneur -->
-          <div class="experience-card">
-            <div class="experience-year">Mei - Juli 2025</div>
-            <h3>Programmer - WINT 2025: Young Entrepreneur</h3>
-            <p>
-              Dedikasi, kreativitas, dan komitmen dalam bidang pemrograman,
-              menunjukkan keterampilan teknis dan pemecahan masalah yang unggul.
-            </p>
-            <img
-              src="assets/SERTIFIKAT 3.jpg"
-              alt="Sertifikat Programmer WINT 2025"
-              class="cert-image"
-            />
-            <!-- Tidak ada PDF spesifik, jadi skip link jika tidak ada -->
+          <!-- Skill Slot 4 -->
+          <div class="skill-slot">
+            <div class="skill-head">
+              <span class="skill-icon">🔷</span>
+              <span class="skill-level-badge">LVL 85</span>
+            </div>
+            <h3 class="skill-name">TypeScript</h3>
+            <p class="skill-cat">Type-Safe Logic</p>
+            <div class="skill-meter"><div class="skill-meter-fill" style="width: 85%;"></div></div>
           </div>
 
-          <!-- Item 5: Asisten Praktikum Algoritma dan Pemrograman Semester Genap 2024-2025 -->
-          <div class="experience-card">
-            <div class="experience-year">Semester Genap 2024-2025</div>
-            <h3>Asisten Praktikum Algoritma dan Pemrograman</h3>
-            <p>
-              Partisipasi dan kerjasama sebagai Asisten di Program Studi Teknik
-              Informatika, Universitas Mataram.
-            </p>
-            <img
-              src="assets/Rafly Ridho_ Sukardi_Sertifikat Asisten Alpro Genap 2024-2025.jpg"
-              alt="Sertifikat Asisten Praktikum Alpro Genap 2024-2025"
-              class="cert-image"
-            />
-            <!-- <a
-              href="[GANTI: path/to/Rafly Ridho_ Sukardi_Sertifikat Asisten Alpro Genap 2024-2025.pdf]"
-              download
-              class="cert-link"
-              >Download Sertifikat PDF</a
-            > -->
+          <!-- Skill Slot 5 -->
+          <div class="skill-slot">
+            <div class="skill-head">
+              <span class="skill-icon">🧩</span>
+              <span class="skill-level-badge">LVL 92</span>
+            </div>
+            <h3 class="skill-name">Algoritma & Struktur Data</h3>
+            <p class="skill-cat">Computational Logic</p>
+            <div class="skill-meter"><div class="skill-meter-fill" style="width: 92%;"></div></div>
           </div>
 
-          <!-- Item 6: Asisten Praktikum Sistem Digital Semester Ganjil 2024/2025 -->
-          <div class="experience-card">
-            <div class="experience-year">Semester Ganjil 2024/2025</div>
-            <h3>Asisten Praktikum Sistem Digital</h3>
-            <p>
-              Penghargaan atas partisipasi sebagai Asisten di Fakultas Teknik,
-              Universitas Mataram.
-            </p>
-            <img
-              src="assets/Rafly Ridho_ Sukardi_SertifikatSisdig_semester_Ganjil_2024_2025.jpg"
-              alt="Sertifikat Asisten Praktikum Sistem Digital Ganjil 2024/2025"
-              class="cert-image"
-            />
-            <!-- <a
-              href="[GANTI: path/to/Rafly Ridho_ Sukardi_SertifikatSisdig_semester_Ganjil_2024_2025.pdf]"
-              download
-              class="cert-link"
-              >Download Sertifikat PDF</a
-            > -->
+          <!-- Skill Slot 6 -->
+          <div class="skill-slot">
+            <div class="skill-head">
+              <span class="skill-icon">🗄️</span>
+              <span class="skill-level-badge">LVL 88</span>
+            </div>
+            <h3 class="skill-name">Database (SQL / NoSQL)</h3>
+            <p class="skill-cat">Data Persistence</p>
+            <div class="skill-meter"><div class="skill-meter-fill" style="width: 88%;"></div></div>
+          </div>
+
+          <!-- Skill Slot 7 -->
+          <div class="skill-slot">
+            <div class="skill-head">
+              <span class="skill-icon">🎨</span>
+              <span class="skill-level-badge">LVL 86</span>
+            </div>
+            <h3 class="skill-name">UI / UX Design</h3>
+            <p class="skill-cat">User Experience & Prototyping</p>
+            <div class="skill-meter"><div class="skill-meter-fill" style="width: 86%;"></div></div>
+          </div>
+
+          <!-- Skill Slot 8 -->
+          <div class="skill-slot">
+            <div class="skill-head">
+              <span class="skill-icon">🐙</span>
+              <span class="skill-level-badge">LVL 90</span>
+            </div>
+            <h3 class="skill-name">Git & CI/CD</h3>
+            <p class="skill-cat">Version Control & Workflow</p>
+            <div class="skill-meter"><div class="skill-meter-fill" style="width: 90%;"></div></div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-          <div class="section-content contact-content">
-            <span class="section-label">◆ Hubungi Saya</span>
-            <h2 class="contact-title">Mari Berkolaborasi</h2>
-            <p class="contact-subtitle">
-              Tertarik dengan proyek web, kolaborasi akademik, atau peluang
-              kerja? Saya siap diskusi.
-            </p>
-            <div class="contact-links">
-              <a
-                href="https://mail.google.com/mail/u/0/#inbox"
-                target="_blank"
-                class="contact-link"
-                >✉ Email</a
-              >
-              <a
-                href="https://github.com/ridho 2830"
-                target="_blank"
-                class="contact-link"
-                >⚡ GitHub</a
-              >
-              <a
-                href="https://www.linkedin.com/in/rafly-sukardi-58b7061aa/"
-                target="_blank"
-                class="contact-link"
-                >◆ LinkedIn</a
-              >
-              <a
-                href="https://www.instagram.com/_i__n__y__a_"
-                target="_blank"
-                class="contact-link"
-                >📷 Instagram</a
-              >
+      <!-- Projects Section -->
+      <section id="projects" class="pixel-section">
+        <div class="section-header-box">
+          <span class="section-tag">ARCADE STAGES</span>
+          <h2 class="section-title">SELECTED PROJECTS</h2>
+          <span class="section-subinfo">COMPLETED STAGES: 04</span>
+        </div>
+
+        <div class="projects-arcade-grid">
+          <!-- Project Cartridge 1 -->
+          <div class="project-cartridge">
+            <div class="cartridge-screen">
+              <img src="assets/wms-pln.png" alt="WMS PLN" />
+              <div class="screen-scanline-fx"></div>
+              <span class="cartridge-stage-tag">STAGE 01</span>
+            </div>
+            <div class="cartridge-content">
+              <div>
+                <h3 class="project-name">WMS PLN</h3>
+                <p class="project-summary">
+                  Warehouse Management System terintegrasi untuk optimalisasi inventaris, pelacakan aset logistik, dan manajemen pergudangan operasional PLN.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Web App</span>
+                  <span class="project-tag">Inventory System</span>
+                  <span class="project-tag">Enterprise</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <button
+                  class="pixel-btn pixel-btn-sm inspect-btn"
+                  data-title="WMS PLN (Warehouse Management System)"
+                  data-img="assets/wms-pln.png"
+                  data-desc="Aplikasi manajemen pergudangan komprehensif untuk mendukung efisiensi alur keluar-masuk barang, pencatatan stock opname, dan laporan audit logistik PLN."
+                  data-meta="Kategori: Enterprise Web Application • Status: Deployed"
+                >
+                  🔍 INSPECT DATA
+                </button>
+              </div>
             </div>
           </div>
-        </section>
-      </div>
-    </section>
 
+          <!-- Project Cartridge 2 -->
+          <div class="project-cartridge">
+            <div class="cartridge-screen">
+              <img src="assets/asak.png" alt="ASAK Augmented Reality" />
+              <div class="screen-scanline-fx"></div>
+              <span class="cartridge-stage-tag">STAGE 02</span>
+            </div>
+            <div class="cartridge-content">
+              <div>
+                <h3 class="project-name">ASAK (Aksara Sasak AR)</h3>
+                <p class="project-summary">
+                  Media Edukasi dan Pelestarian Aksara Tradisional Sasak berbasis teknologi Augmented Reality (AR) yang interaktif bagi pelajar dan masyarakat.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Augmented Reality</span>
+                  <span class="project-tag">EdTech</span>
+                  <span class="project-tag">Cultural Tech</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <button
+                  class="pixel-btn pixel-btn-sm inspect-btn"
+                  data-title="ASAK - Media Aksara Sasak AR"
+                  data-img="assets/asak.png"
+                  data-desc="Inovasi pembelajaran interaktif berbasis AR untuk mempermudah generasi muda mengenal, menulis, dan melestarikan Aksara Sasak. Meraih Juara II Inovasi Daerah Kota Mataram 2025 dan Juara BudayaGo! 2025."
+                  data-meta="Kategori: Augmented Reality & Education • Award Winning Project"
+                >
+                  🔍 INSPECT DATA
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Cartridge 3 -->
+          <div class="project-cartridge">
+            <div class="cartridge-screen">
+              <img src="assets/reservasikampus.png" alt="Reservasi Kampus" />
+              <div class="screen-scanline-fx"></div>
+              <span class="cartridge-stage-tag">STAGE 03</span>
+            </div>
+            <div class="cartridge-content">
+              <div>
+                <h3 class="project-name">RESERVASI KAMPUS</h3>
+                <p class="project-summary">
+                  Sistem informasi manajemen peminjaman ruangan dan fasilitas kampus secara real-time untuk mencegah konflik jadwal dan mempermudah birokrasi.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Web Platform</span>
+                  <span class="project-tag">Booking Engine</span>
+                  <span class="project-tag">UNRAM</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <button
+                  class="pixel-btn pixel-btn-sm inspect-btn"
+                  data-title="Sistem Reservasi Fasilitas Kampus"
+                  data-img="assets/reservasikampus.png"
+                  data-desc="Platform digital untuk mengelola pemesanan ruang kuliah, laboratorium, dan aula kampus secara transparan dan terotomatisasi dengan validasi status langsung."
+                  data-meta="Kategori: Campus Management System • Status: Implemented"
+                >
+                  🔍 INSPECT DATA
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Cartridge 4: KimiAR -->
+          <div class="project-cartridge">
+            <div class="cartridge-screen">
+              <img src="assets/kimiar.png" alt="KimiAR - AR Chemistry Learning" />
+              <div class="screen-scanline-fx"></div>
+              <span class="cartridge-stage-tag">STAGE 04</span>
+            </div>
+            <div class="cartridge-content">
+              <div>
+                <h3 class="project-name">KimiAR</h3>
+                <p class="project-summary">
+                  Media Pembelajaran Kimia berbasis Augmented Reality (AR) yang interaktif dan menyenangkan. Dibangun dengan Unity 6.4 untuk platform Android.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Augmented Reality</span>
+                  <span class="project-tag">Unity 3D</span>
+                  <span class="project-tag">EdTech</span>
+                  <span class="project-tag">Android</span>
+                </div>
+              </div>
+              <div class="project-actions">
+                <button
+                  class="pixel-btn pixel-btn-sm inspect-btn"
+                  data-title="KimiAR - Media Pembelajaran Kimia AR"
+                  data-img="assets/kimiar.png"
+                  data-desc="Aplikasi mobile berbasis Augmented Reality untuk memvisualisasikan struktur molekul dan reaksi kimia secara interaktif. Dibangun menggunakan Unity 6.4 dengan fitur Mulai Permainan, Panduan, dan konten edukasi kimia yang gamified."
+                  data-meta="Kategori: AR Mobile Application • Platform: Android • Engine: Unity 6.4"
+                >
+                  🔍 INSPECT DATA
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience & Achievements Section (NO DOWNLOADS) -->
+      <section id="experience" class="pixel-section">
+        <div class="section-header-box">
+          <span class="section-tag">QUEST LOG</span>
+          <h2 class="section-title">ACHIEVEMENTS & EXPERIENCE</h2>
+          <span class="section-subinfo">COMPLETED QUESTS: 10 • CLICK TO INSPECT</span>
+        </div>
+
+        <div class="quest-log-grid">
+          <!-- Quest 1: Juara II Lomba Inovasi Mataram 2025 -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Juara II Lomba Inovasi Daerah Mataram 2025"
+            data-img="assets/SERTIFIKAT 3.jpg"
+            data-desc="Inovasi ASAK (Media Pembelajaran Aksara Sasak Berbasis Augmented Reality) dalam Kategori Inovasi Daerah Urusan Lainnya pada peringatan HUT Kota Mataram ke-32."
+            data-meta="Waktu: Agustus 2025 • Penyelenggara: Bapperida Kota Mataram"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">AGUSTUS 2025</span>
+                <span class="quest-type-tag">🏆 2ND PLACE</span>
+              </div>
+              <h3 class="quest-title">Juara II Lomba Inovasi Daerah Mataram 2025</h3>
+              <p class="quest-desc">
+                Inovasi ASAK (Media Pembelajaran Aksara Sasak Berbasis Augmented Reality) pada HUT Kota Mataram ke-32.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/SERTIFIKAT 3.jpg" alt="Sertifikat Inovasi Mataram" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+
+          <!-- Quest 2: Juara Bersama BudayaGo! 2025 -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Juara Bersama BudayaGo! Kompetisi Inovasi Digital 2025"
+            data-img="assets/SERTIFIKAT JUARA BERSAMA - ASAK.jpg"
+            data-desc="Kompetisi Inovasi Digital Budaya Indonesia untuk karya inovasi ASAK bersama tim: Muhammad Rendi Maulana, Muh. Rizky Destiawansyah, Aliya Rahmawati, dan Ikrima Fina Hayati."
+            data-meta="Waktu: Desember 2025 • Tingkat: Nasional / Mahasiswa"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">DESEMBER 2025</span>
+                <span class="quest-type-tag">🥇 WINNER</span>
+              </div>
+              <h3 class="quest-title">Juara Bersama BudayaGo! Inovasi Digital 2025</h3>
+              <p class="quest-desc">
+                Kompetisi Inovasi Digital Budaya Indonesia untuk ASAK kategori Pelajar / Mahasiswa.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/SERTIFIKAT JUARA BERSAMA - ASAK.jpg" alt="Sertifikat BudayaGo" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+
+          <!-- Quest 3: Mentor Kelompok Belajar Alpro -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Mentor Kelompok Belajar Algoritma & Pemrograman"
+            data-img="assets/Sertifikat mentor Kelompok Belajar Ridho Alpro.jpg"
+            data-desc="Pengakuan dan apresiasi sebagai Mentor Kelompok Belajar untuk mata kuliah Algoritma dan Pemrograman oleh Himpunan Mahasiswa Informatika (HMIF) FT-UNRAM."
+            data-meta="Waktu: Juni 2025 • Afiliasi: HMIF FT-UNRAM"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">JUNI 2025</span>
+                <span class="quest-type-tag">🎓 MENTOR</span>
+              </div>
+              <h3 class="quest-title">Mentor Kelompok Belajar Alpro</h3>
+              <p class="quest-desc">
+                Membimbing mahasiswa dalam pendalaman logika pemrograman dan struktur algoritma di HMIF FT-UNRAM.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/Sertifikat mentor Kelompok Belajar Ridho Alpro.jpg" alt="Sertifikat Mentor" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+
+          <!-- Quest 4: Programmer WINT 2025 -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Programmer - WINT 2025: Young Entrepreneur"
+            data-img="assets/SERTIFIKAT 3.jpg"
+            data-desc="Dedikasi, kreativitas, dan komitmen dalam pengembangan pemrograman pada program WINT 2025 Young Entrepreneur."
+            data-meta="Waktu: Mei - Juli 2025 • Kategori: Programming & Entrepreneurship"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">MEI - JULI 2025</span>
+                <span class="quest-type-tag">💻 PROGRAMMER</span>
+              </div>
+              <h3 class="quest-title">Programmer - WINT 2025 Young Entrepreneur</h3>
+              <p class="quest-desc">
+                Pengembangan perangkat lunak dengan pendekatan problem solving dan inovasi teknis unggul.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/SERTIFIKAT 3.jpg" alt="Sertifikat Programmer WINT" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+
+          <!-- Quest 5: Asisten Praktikum Alpro Genap 2024-2025 -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Asisten Praktikum Algoritma & Pemrograman Genap 2024-2025"
+            data-img="assets/Rafly Ridho_ Sukardi_Sertifikat Asisten Alpro Genap 2024-2025.jpg"
+            data-desc="Sertifikat penghargaan atas dedikasi dan kerjasama sebagai Asisten Praktikum Mata Kuliah Algoritma dan Pemrograman Semester Genap 2024-2025 di Prodi Teknik Informatika Universitas Mataram."
+            data-meta="Waktu: Semester Genap 2024-2025 • Universitas Mataram"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">GENAP 2024-2025</span>
+                <span class="quest-type-tag">🛡️ ASISTEN LAB</span>
+              </div>
+              <h3 class="quest-title">Asisten Praktikum Algoritma & Pemrograman</h3>
+              <p class="quest-desc">
+                Pendampingan praktikum lab, modul pemrograman, dan evaluasi tugas pemrograman mahasiswa.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/Rafly Ridho_ Sukardi_Sertifikat Asisten Alpro Genap 2024-2025.jpg" alt="Sertifikat Asisten Alpro" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+
+          <!-- Quest 6: Asisten Praktikum Sisdig Ganjil 2024/2025 -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Asisten Praktikum Sistem Digital Ganjil 2024/2025"
+            data-img="assets/Rafly Ridho_ Sukardi_SertifikatSisdig_semester_Ganjil_2024_2025.jpg"
+            data-desc="Penghargaan atas partisipasi dan kontribusi aktif sebagai Asisten Praktikum Sistem Digital Semester Ganjil 2024/2025 Fakultas Teknik Universitas Mataram."
+            data-meta="Waktu: Semester Ganjil 2024/2025 • Universitas Mataram"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">GANJIL 2024/2025</span>
+                <span class="quest-type-tag">⚡ ASISTEN LAB</span>
+              </div>
+              <h3 class="quest-title">Asisten Praktikum Sistem Digital</h3>
+              <p class="quest-desc">
+                Membimbing praktikum rangkaian gerbang logika, rangkaian kombinasional, dan arsitektur sistem digital.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/Rafly Ridho_ Sukardi_SertifikatSisdig_semester_Ganjil_2024_2025.jpg" alt="Sertifikat Asisten Sisdig" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+
+          <!-- Quest 7: HKI (Hak Kekayaan Intelektual) ASAK -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Sertifikat Hak Kekayaan Intelektual (HKI) - ASAK"
+            data-img="assets/hki.png"
+            data-desc="Pencatatan resmi Hak Kekayaan Intelektual (HKI) atas karya inovasi ASAK (Media Pembelajaran Aksara Sasak Berbasis Augmented Reality) oleh Kementerian Hukum dan HAM RI."
+            data-meta="Kategori: Hak Cipta / Intellectual Property • Status: Terdaftar Resmi"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">2025</span>
+                <span class="quest-type-tag">📜 HKI / HAK CIPTA</span>
+              </div>
+              <h3 class="quest-title">Hak Kekayaan Intelektual (HKI) ASAK</h3>
+              <p class="quest-desc">
+                Pencatatan resmi HKI atas inovasi ASAK (Aksara Sasak AR) oleh Kemenkumham RI.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/hki.png" alt="Sertifikat HKI ASAK" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+
+          <!-- Quest 8: Asisten Praktikum Algoritma & Struktur Data Ganjil 2025-2026 -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Asisten Praktikum Algoritma & Struktur Data Ganjil 2025-2026"
+            data-img="assets/Sertifikat Algodat Ganjil 2025-2026 - Rafly Ridho_ Sukardi_page-0001.jpg"
+            data-desc="Sertifikat penghargaan atas dedikasi dan kontribusi sebagai Asisten Praktikum Algoritma dan Struktur Data Semester Ganjil 2025-2026 di Program Studi Teknik Informatika Universitas Mataram."
+            data-meta="Waktu: Semester Ganjil 2025-2026 • Universitas Mataram"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">GANJIL 2025-2026</span>
+                <span class="quest-type-tag">🛡️ ASISTEN LAB</span>
+              </div>
+              <h3 class="quest-title">Asisten Praktikum Algodat</h3>
+              <p class="quest-desc">
+                Pendampingan praktikum dan evaluasi mahasiswa dalam pendalaman algoritma, struktur data, dan kompleksitas.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/Sertifikat Algodat Ganjil 2025-2026 - Rafly Ridho_ Sukardi_page-0001.jpg" alt="Sertifikat Asisten Algodat" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+
+          <!-- Quest 9: Asisten Praktikum Jaringan Komputer Ganjil 2025-2026 -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Asisten Praktikum Jaringan Komputer Ganjil 2025-2026"
+            data-img="assets/Sertifikat Asisten Jarkom Ganjil 2025-2026 - Rafly Ridho_ Sukardi_page-0001.jpg"
+            data-desc="Sertifikat penghargaan atas dedikasi dan kontribusi sebagai Asisten Praktikum Jaringan Komputer Semester Ganjil 2025-2026 di Program Studi Teknik Informatika Universitas Mataram."
+            data-meta="Waktu: Semester Ganjil 2025-2026 • Universitas Mataram"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">GANJIL 2025-2026</span>
+                <span class="quest-type-tag">🌐 ASISTEN LAB</span>
+              </div>
+              <h3 class="quest-title">Asisten Praktikum Jaringan Komputer</h3>
+              <p class="quest-desc">
+                Membimbing praktikum konfigurasi jaringan, routing, switching, dan topologi jaringan komputer.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/Sertifikat Asisten Jarkom Ganjil 2025-2026 - Rafly Ridho_ Sukardi_page-0001.jpg" alt="Sertifikat Asisten Jarkom" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+
+          <!-- Quest 10: Cyber Security Certificate -->
+          <div
+            class="quest-item-card inspect-btn"
+            data-title="Apresiasi Penemuan Celah Keamanan (Broken Access Control) - UNRAM"
+            data-img="assets/cysec_page-0001.jpg"
+            data-desc="Penghargaan dan apresiasi resmi atas kontribusi etis dalam penemuan serta pelaporan celah keamanan (vulnerability disclosure) jenis Broken Access Control pada sistem website Universitas Mataram guna memperkuat postur keamanan informasi dan proteksi data institusi."
+            data-meta="Kategori: Vulnerability Disclosure & Security Research • Institusi: Universitas Mataram"
+          >
+            <div>
+              <div class="quest-badge-row">
+                <span class="quest-date">2025</span>
+                <span class="quest-type-tag">🔒 SECURITY APPRECIATION</span>
+              </div>
+              <h3 class="quest-title">Penemuan Celah Keamanan (Broken Access Control) UNRAM</h3>
+              <p class="quest-desc">
+                Apresiasi atas penemuan dan pelaporan etis celah keamanan jenis Broken Access Control pada website Universitas Mataram.
+              </p>
+            </div>
+            <div>
+              <div class="cert-preview-wrapper">
+                <img src="assets/cysec_page-0001.jpg" alt="Sertifikat Cyber Security UNRAM" class="cert-preview-img" />
+                <span class="cert-view-hint">🔍 KLIK PREVIEW</span>
+              </div>
+              <button class="pixel-btn pixel-btn-sm quest-inspect-btn">
+                PREVIEW SERTIFIKAT
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Save Point / Contact Section -->
+      <section id="contact" class="pixel-section">
+        <div class="save-point-box pixel-corner-deco">
+          <h2 class="save-point-title">💾 SAVE POINT // REACH OUT</h2>
+          <p class="save-point-desc">
+            Tertarik untuk berkolaborasi dalam pengembangan aplikasi web, inovasi teknologi, atau proyek akademik? Mari terhubung dan diskusikan ide Anda!
+          </p>
+
+          <div class="save-links-grid">
+            <a
+              href="mailto:ridhosukardi28@gmail.com"
+              class="contact-arcade-btn btn-mail"
+            >
+              <span>✉️</span> EMAIL ME
+            </a>
+            <a
+              href="https://github.com/ridho2830"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-arcade-btn btn-github"
+            >
+              <span>⚡</span> GITHUB
+            </a>
+            <a
+              href="https://www.linkedin.com/in/rafly-sukardi-58b7061aa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-arcade-btn btn-linkedin"
+            >
+              <span>💼</span> LINKEDIN
+            </a>
+            <a
+              href="https://www.instagram.com/_i__n__y__a_"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-arcade-btn btn-instagram"
+            >
+              <span>📷</span> INSTAGRAM
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p class="footer-text">
+        © 2026 <span>RAFLY RIDHO' SUKARDI</span> • BUILT WITH PIXEL ART AESTHETICS • PRESS START TO CONTINUE
+      </p>
+    </footer>
+
+    <!-- Pixel Modal / Lightbox (NO DOWNLOADS) -->
+    <div id="pixel-modal" class="pixel-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="pixel-modal-window">
+        <div class="modal-header-bar">
+          <div class="modal-header-title">
+            <span>📜</span>
+            <span id="modal-title-text">INSPECT ITEM</span>
+          </div>
+          <button id="modal-close" class="modal-close-btn" aria-label="Close modal">
+            [X] ESC
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-frame" id="modal-media-frame">
+            <img id="modal-img" src="" alt="Certificate Preview" />
+            <iframe id="modal-pdf" src="" style="display:none;width:100%;height:460px;border:none;"></iframe>
+          </div>
+          <div class="modal-info-meta" id="modal-meta-text">Kategori Info</div>
+          <h3 class="modal-info-title" id="modal-heading-text">Item Title</h3>
+          <p class="modal-info-desc" id="modal-desc-text">Item Description</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Script -->
     <script src="script.js"></script>
   </body>
 </html>
