@@ -136,7 +136,7 @@ if (themeToggle) {
 }
 
 // CRT Scanlines Setup
-let crtEnabled = localStorage.getItem('pixel_crt') !== 'false';
+let crtEnabled = localStorage.getItem('pixel_crt') === 'true';
 if (crtOverlay) {
   crtOverlay.style.display = crtEnabled ? 'block' : 'none';
 }

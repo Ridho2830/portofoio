@@ -69,7 +69,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  image-rendering: pixelated;
+}
+
+img {
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
 }
 
 html {
@@ -118,6 +122,7 @@ body {
 
 /* ================= Retro CRT Scanlines & Background Grid ================= */
 .crt-overlay {
+  display: none;
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -776,11 +781,7 @@ nav {
   transform: scale(1.05);
 }
 .screen-scanline-fx {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.5) 50%);
-  background-size: 100% 4px;
+  display: none !important;
 }
 .cartridge-stage-tag {
   position: absolute;
