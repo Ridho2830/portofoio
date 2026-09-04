@@ -217,13 +217,25 @@ const modalImg = document.getElementById('modal-img');
 const modalMetaText = document.getElementById('modal-meta-text');
 const modalHeadingText = document.getElementById('modal-heading-text');
 const modalDescText = document.getElementById('modal-desc-text');
+const modalActionsBar = document.getElementById('modal-actions-bar');
+const modalLinkBtn = document.getElementById('modal-link-btn');
 
-function openModal(title, mediaSrc, desc, meta) {
+function openModal(title, mediaSrc, desc, meta, link) {
   if (!modal) return;
   modalTitleText.textContent = 'INSPECT // ' + title.toUpperCase();
   modalHeadingText.textContent = title;
   modalDescText.textContent = desc;
   modalMetaText.textContent = meta || 'Item Verified';
+
+  if (modalActionsBar && modalLinkBtn) {
+    if (link) {
+      modalLinkBtn.href = link;
+      modalActionsBar.style.display = 'block';
+    } else {
+      modalActionsBar.style.display = 'none';
+      modalLinkBtn.href = '#';
+    }
+  }
 
   const isPdf = mediaSrc.toLowerCase().endsWith('.pdf');
   const modalImg = document.getElementById('modal-img');
@@ -264,6 +276,7 @@ function closeModal() {
   
   const modalPdf = document.getElementById('modal-pdf');
   if (modalPdf) modalPdf.src = '';
+  if (modalActionsBar) modalActionsBar.style.display = 'none';
   
   SFX.modalClose();
 }
@@ -276,8 +289,9 @@ document.querySelectorAll('.inspect-btn').forEach((trigger) => {
     const imgSrc = trigger.getAttribute('data-img') || trigger.querySelector('img')?.src || '';
     const desc = trigger.getAttribute('data-desc') || trigger.querySelector('.quest-desc, .project-summary')?.textContent || '';
     const meta = trigger.getAttribute('data-meta') || 'Sertifikat Terverifikasi';
+    const link = trigger.getAttribute('data-link') || '';
 
-    openModal(title, imgSrc, desc, meta);
+    openModal(title, imgSrc, desc, meta, link);
   });
 });
 

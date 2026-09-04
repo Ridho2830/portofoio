@@ -834,6 +834,8 @@ nav {
 .project-actions {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 /* ================= Experience & Quest Log (Certificates) ================= */
