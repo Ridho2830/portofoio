@@ -82,7 +82,7 @@ document.addEventListener('mousemove', (e) => {
 // Interactive hover effects with sound
 function setupCursorHovers() {
   const hoverableElements = document.querySelectorAll(
-    'a, button, .skill-slot, .project-cartridge, .quest-item-card, input, select'
+    'a, button, .skill-slot, .project-cartridge, .quest-item-card, .snapshot-cartridge, .avatar-frame, .skin-thumb-btn, input, select'
   );
 
   hoverableElements.forEach((el) => {
@@ -331,6 +331,41 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
+// ================= 6. Interactive Avatar Pose / Skin Switcher =================
+const mainAvatarImg = document.getElementById('main-avatar-img');
+const mainAvatarFrame = document.getElementById('main-avatar-frame');
+const poseButtons = document.querySelectorAll('.skin-thumb-btn');
+
+if (poseButtons.length > 0 && mainAvatarImg) {
+  poseButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // prevent triggering modal immediately when switching pose
+      const newSrc = btn.getAttribute('data-src');
+      const poseTitle = btn.getAttribute('data-title');
+
+      if (newSrc) {
+        mainAvatarImg.style.opacity = '0.3';
+        setTimeout(() => {
+          mainAvatarImg.src = newSrc;
+          mainAvatarImg.style.opacity = '1';
+        }, 100);
+
+        if (mainAvatarFrame) {
+          mainAvatarFrame.setAttribute('data-img', newSrc);
+          mainAvatarFrame.setAttribute('data-title', `Rafly Ridho' Sukardi - ${poseTitle}`);
+        }
+
+        poseButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Play retro skin select audio chime
+        play8BitTone(680, 'triangle', 0.05, 0.08);
+        setTimeout(() => play8BitTone(880, 'square', 0.08, 0.08), 50);
+      }
+    });
+  });
+}
 
 // Setup hover effects initially
 setupCursorHovers();
