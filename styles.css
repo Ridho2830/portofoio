@@ -35,33 +35,33 @@
 }
 
 [data-theme="light"] {
-  /* ===== GameBoy DMG / Vintage 4-Shade Theme ===== */
-  --bg: #c4cfa1;
-  --bg-darker: #b5c090;
-  --bg-card: #aabb77;
-  --bg-card-hover: #9eb06a;
-  --panel-bg: #aabb77;
+  /* ===== Neo Retro Clean Arcade / Crisp Light Theme ===== */
+  --bg: #f1f4f9;
+  --bg-darker: #e2e8f0;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --panel-bg: #ffffff;
 
-  --text-main: #1a2e0a;
-  --text-dim: #3d5a1e;
-  --text-highlight: #0d1f04;
+  --text-main: #1e293b;
+  --text-dim: #64748b;
+  --text-highlight: #0f172a;
 
-  /* GameBoy uses limited green shading, but each role is distinct */
-  --pixel-cyan: #1a3a0a;    /* Darkest - titles & primary */
-  --pixel-yellow: #2e5414;   /* Dark mid - interactive/badges */
-  --pixel-green: #1a3a0a;    /* Darkest - status */
-  --pixel-pink: #3d6a1e;     /* Mid - accents */
-  --pixel-purple: #3d5a1e;
-  --pixel-orange: #2e5414;
+  /* Vibrant & crisp retro accents */
+  --pixel-cyan: #0284c7;    /* Electric Cyan / Sky Blue */
+  --pixel-yellow: #f59e0b;  /* Warm Gold Amber */
+  --pixel-green: #10b981;   /* Fresh Emerald */
+  --pixel-pink: #ec4899;    /* Retro Hot Pink */
+  --pixel-purple: #8b5cf6;  /* Royal Violet */
+  --pixel-orange: #f97316;  /* Arcade Orange */
 
-  --border-color: #1a3a0a;
-  --shadow-color: #142e06;
-  --glow-cyan: rgba(26, 58, 10, 0.15);
-  --glow-pink: rgba(26, 58, 10, 0.15);
-  --glow-green: rgba(26, 58, 10, 0.15);
+  --border-color: #1e293b;
+  --shadow-color: #0f172a;
+  --glow-cyan: rgba(2, 132, 199, 0.2);
+  --glow-pink: rgba(236, 72, 153, 0.2);
+  --glow-green: rgba(16, 185, 129, 0.2);
 
-  --grid-line: rgba(26, 58, 10, 0.08);
-  --scanline-opacity: 0.05;
+  --grid-line: rgba(30, 41, 59, 0.05);
+  --scanline-opacity: 0.03;
 }
 
 /* ================= Global Reset & Typography ================= */
@@ -1030,6 +1030,22 @@ nav {
 
 .quest-inspect-btn {
   width: 100%;
+}
+.quest-btn-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  align-items: stretch;
+}
+.quest-btn-row .quest-inspect-btn {
+  flex: 1;
+}
+.quest-btn-row .quest-direct-link {
+  flex: 0 0 auto;
+  font-size: 8.5px;
+  padding: 8px 10px;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 /* ================= Contact Section / Save Point ================= */

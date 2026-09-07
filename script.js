@@ -198,7 +198,7 @@ if (canvas) {
       star.twinkle += 0.05;
       const opacity = Math.sin(star.twinkle) * 0.4 + 0.6;
 
-      ctx.fillStyle = theme === 'light' ? '#1a3a0a' : star.color;
+      ctx.fillStyle = star.color;
       ctx.globalAlpha = opacity;
       ctx.fillRect(Math.floor(star.x), Math.floor(star.y), star.size, star.size);
     });
@@ -230,6 +230,11 @@ function openModal(title, mediaSrc, desc, meta, link) {
   if (modalActionsBar && modalLinkBtn) {
     if (link) {
       modalLinkBtn.href = link;
+      if (link.includes('dicoding.com')) {
+        modalLinkBtn.textContent = '🎓 VERIFIKASI KREDENSIAL DICODING';
+      } else {
+        modalLinkBtn.textContent = '🚀 BUKA WEBSITE (LIVE)';
+      }
       modalActionsBar.style.display = 'block';
     } else {
       modalActionsBar.style.display = 'none';
