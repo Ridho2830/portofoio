@@ -82,7 +82,7 @@ document.addEventListener('mousemove', (e) => {
 // Interactive hover effects with sound
 function setupCursorHovers() {
   const hoverableElements = document.querySelectorAll(
-    'a, button, .skill-slot, .project-cartridge, .quest-item-card, .snapshot-cartridge, .avatar-frame, .skin-thumb-btn, input, select'
+    'a, button, .skill-slot, .project-cartridge, .project-slide-card, .visual-main-box, .visual-side-card, .stage-pill, .quest-item-card, .snapshot-cartridge, .avatar-frame, .skin-thumb-btn, input, select'
   );
 
   hoverableElements.forEach((el) => {
@@ -371,6 +371,125 @@ if (poseButtons.length > 0 && mainAvatarImg) {
         setTimeout(() => play8BitTone(880, 'square', 0.08, 0.08), 50);
       }
     });
+  });
+}
+
+// ================= 7. Horizontal Projects Showcase Carousel Controller =================
+const projectTrack = document.getElementById('projects-carousel-track');
+const projectPrevBtn = document.getElementById('project-prev-btn');
+const projectNextBtn = document.getElementById('project-next-btn');
+const projectPills = document.querySelectorAll('.stage-pill');
+const projectSlides = document.querySelectorAll('.project-slide-card');
+
+if (projectTrack) {
+  function getActiveSlideIndex() {
+    const scrollLeft = projectTrack.scrollLeft;
+    let closestIndex = 0;
+    let minDiff = Infinity;
+    projectSlides.forEach((slide, index) => {
+      const diff = Math.abs(slide.offsetLeft - projectTrack.offsetLeft - scrollLeft);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIndex = index;
+      }
+    });
+    return closestIndex;
+  }
+
+  function updateActivePills(index) {
+    projectPills.forEach((pill, i) => {
+      if (i === index) {
+        pill.classList.add('active');
+      } else {
+        pill.classList.remove('active');
+      }
+    });
+  }
+
+  function scrollToSlide(index) {
+    if (index >= 0 && index < projectSlides.length) {
+      const targetSlide = projectSlides[index];
+      const targetX = targetSlide.offsetLeft - projectTrack.offsetLeft;
+      projectTrack.scrollTo({ left: targetX, behavior: 'smooth' });
+      updateActivePills(index);
+      SFX.click();
+    }
+  }
+
+  if (projectPrevBtn) {
+    projectPrevBtn.addEventListener('click', () => {
+      const currentIndex = getActiveSlideIndex();
+      const prevIndex = Math.max(0, currentIndex - 1);
+      scrollToSlide(prevIndex);
+    });
+  }
+
+  if (projectNextBtn) {
+    projectNextBtn.addEventListener('click', () => {
+      const currentIndex = getActiveSlideIndex();
+      const nextIndex = Math.min(projectSlides.length - 1, currentIndex + 1);
+      scrollToSlide(nextIndex);
+    });
+  }
+
+  projectPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const index = parseInt(pill.getAttribute('data-index') || '0', 10);
+      scrollToSlide(index);
+    });
+  });
+
+  // Track scroll listener for updating active pill
+  let scrollTimeout = null;
+  projectTrack.addEventListener('scroll', () => {
+    if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
+    scrollTimeout = requestAnimationFrame(() => {
+      const activeIdx = getActiveSlideIndex();
+      updateActivePills(activeIdx);
+    });
+  }, { passive: true });
+
+  // Mouse Drag to Scroll on desktop
+  let isDown = false;
+  let startX;
+  let scrollLeftPos;
+
+  projectTrack.addEventListener('mousedown', (e) => {
+    if (e.target.closest('button, a, .inspect-btn')) return;
+    isDown = true;
+    projectTrack.style.cursor = 'grabbing';
+    startX = e.pageX - projectTrack.offsetLeft;
+    scrollLeftPos = projectTrack.scrollLeft;
+  });
+
+  projectTrack.addEventListener('mouseleave', () => {
+    isDown = false;
+    projectTrack.style.cursor = '';
+  });
+
+  projectTrack.addEventListener('mouseup', () => {
+    isDown = false;
+    projectTrack.style.cursor = '';
+  });
+
+  projectTrack.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - projectTrack.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    projectTrack.scrollLeft = scrollLeftPos - walk;
+  });
+
+  // Arrow key navigation when focused
+  projectTrack.setAttribute('tabindex', '0');
+  projectTrack.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      const currentIndex = getActiveSlideIndex();
+      scrollToSlide(Math.max(0, currentIndex - 1));
+    } else if (e.key === 'ArrowRight') {
+      const currentIndex = getActiveSlideIndex();
+      scrollToSlide(Math.min(projectSlides.length - 1, currentIndex + 1));
+    }
   });
 }
 

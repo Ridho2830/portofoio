@@ -8,7 +8,7 @@
       name="description"
       content="Portofolio Rafly Ridho' Sukardi - Web Developer dan Asisten Praktikum Informatika Universitas Mataram dengan tema Pixel Art Retro."
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260908b" />
   </head>
   <body>
     <!-- Custom Pixel Cursor -->
@@ -401,235 +401,528 @@
         </div>
       </section>
 
-      <!-- Projects Section -->
-      <section id="projects" class="pixel-section">
-        <div class="section-header-box">
-          <span class="section-tag">ARCADE STAGES</span>
-          <h2 class="section-title">SELECTED PROJECTS</h2>
-          <span class="section-subinfo">COMPLETED STAGES: 06</span>
+      <!-- Projects Section (Horizontal Showcase Layout) -->
+      <section id="projects" class="pixel-section projects-showcase-section">
+        <div class="section-header-box projects-header-flex">
+          <div class="header-titles">
+            <span class="section-tag">ARCADE STAGES</span>
+            <h2 class="section-title">SELECTED PROJECTS</h2>
+            <span class="section-subinfo">COMPLETED STAGES: 06 • HORIZONTAL SHOWCASE</span>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div class="carousel-control-cluster">
+            <button id="project-prev-btn" class="pixel-btn pixel-btn-sm" aria-label="Project Sebelumnya" title="Scroll ke Kiri">
+              ◀ PREV
+            </button>
+            <div class="carousel-stage-pills" id="project-carousel-pills">
+              <button class="stage-pill active" data-index="0" type="button">01</button>
+              <button class="stage-pill" data-index="1" type="button">02</button>
+              <button class="stage-pill" data-index="2" type="button">03</button>
+              <button class="stage-pill" data-index="3" type="button">04</button>
+              <button class="stage-pill" data-index="4" type="button">05</button>
+              <button class="stage-pill" data-index="5" type="button">06</button>
+            </div>
+            <button id="project-next-btn" class="pixel-btn pixel-btn-sm" aria-label="Project Berikutnya" title="Scroll ke Kanan">
+              NEXT ▶
+            </button>
+          </div>
         </div>
 
-        <div class="projects-arcade-grid">
-          <!-- Project Cartridge 1 -->
-          <div class="project-cartridge">
-            <div class="cartridge-screen">
-              <img src="assets/wms-pln.png" alt="WMS PLN" />
-              <span class="cartridge-stage-tag">STAGE 01</span>
-            </div>
-            <div class="cartridge-content">
-              <div>
-                <h3 class="project-name">WMS PLN</h3>
-                <p class="project-summary">
-                  Warehouse Management System terintegrasi untuk optimalisasi inventaris, pelacakan aset logistik, dan manajemen pergudangan operasional PLN.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">PHP / Laravel</span>
-                  <span class="project-tag">MySQL</span>
-                  <span class="project-tag">JavaScript</span>
-                  <span class="project-tag">Enterprise Web</span>
-                </div>
-              </div>
-              <div class="project-actions">
-                <button
-                  class="pixel-btn pixel-btn-sm inspect-btn"
-                  data-title="WMS PLN (Warehouse Management System)"
-                  data-img="assets/wms-pln.png"
-                  data-desc="Aplikasi manajemen pergudangan komprehensif untuk mendukung efisiensi alur keluar-masuk barang, pencatatan stock opname, dan laporan audit logistik PLN. Dikembangkan saat Praktik Kerja Lapangan (PKL) di PT PLN Indonesia Power UBP Jeranjang menggunakan stack PHP/Laravel, MySQL, dan JavaScript."
-                  data-meta="Tech Stack: PHP, Laravel, MySQL, JavaScript • Status: Deployed (PT PLN Indonesia Power UBP Jeranjang)"
-                >
-                  🔍 INSPECT DATA
-                </button>
-              </div>
-            </div>
-          </div>
+        <!-- Horizontal Carousel Track Wrapper -->
+        <div class="projects-carousel-wrapper">
+          <div class="projects-carousel-track" id="projects-carousel-track">
 
-          <!-- Project Cartridge 2 -->
-          <div class="project-cartridge">
-            <div class="cartridge-screen">
-              <img src="assets/asak.png" alt="ASAK Augmented Reality" />
-              <span class="cartridge-stage-tag">STAGE 02</span>
-            </div>
-            <div class="cartridge-content">
-              <div>
-                <h3 class="project-name">ASAK (Aksara Sasak AR)</h3>
-                <p class="project-summary">
-                  Media Edukasi dan Pelestarian Aksara Tradisional Sasak berbasis teknologi Augmented Reality (AR) yang interaktif bagi pelajar dan masyarakat.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">Unity 3D</span>
-                  <span class="project-tag">C#</span>
-                  <span class="project-tag">Vuforia AR</span>
-                  <span class="project-tag">Android SDK</span>
+            <!-- Slide 1: WMS PLN -->
+            <article class="project-slide-card" data-stage="1" id="project-slide-1">
+              <!-- Left Column: Metadata -->
+              <div class="project-meta-col">
+                <div class="meta-field">
+                  <div class="meta-label">Project Title</div>
+                  <div class="meta-value meta-title">WMS PLN (Warehouse Management System)</div>
                 </div>
-              </div>
-              <div class="project-actions">
-                <button
-                  class="pixel-btn pixel-btn-sm inspect-btn"
-                  data-title="ASAK - Media Aksara Sasak AR"
-                  data-img="assets/asak.png"
-                  data-desc="Inovasi pembelajaran interaktif berbasis AR untuk mempermudah generasi muda mengenal, menulis, dan melestarikan Aksara Sasak. Meraih Juara II Inovasi Daerah Kota Mataram 2025 dan Juara BudayaGo! 2025. Terdaftar resmi HKI Kemenkumham RI."
-                  data-meta="Tech Stack: Unity 3D, C#, Vuforia AR, Android SDK • Status: Terdaftar HKI"
-                >
-                  🔍 INSPECT DATA
-                </button>
-              </div>
-            </div>
-          </div>
 
-          <!-- Project Cartridge 3 -->
-          <div class="project-cartridge">
-            <div class="cartridge-screen">
-              <img src="assets/reservasikampus.png" alt="Reservasi Kampus" />
-              <span class="cartridge-stage-tag">STAGE 03</span>
-            </div>
-            <div class="cartridge-content">
-              <div>
-                <h3 class="project-name">RESERVASI KAMPUS</h3>
-                <p class="project-summary">
-                  Sistem informasi manajemen peminjaman ruangan dan fasilitas kampus secara real-time untuk mencegah konflik jadwal dan mempermudah birokrasi.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">PHP / Laravel</span>
-                  <span class="project-tag">MySQL</span>
-                  <span class="project-tag">HTML5 / CSS3</span>
-                  <span class="project-tag">Booking Engine</span>
+                <div class="meta-field">
+                  <div class="meta-label">Year Accomplished</div>
+                  <div class="meta-value">2024 - 2025 (PKL)</div>
                 </div>
-              </div>
-              <div class="project-actions">
-                <button
-                  class="pixel-btn pixel-btn-sm inspect-btn"
-                  data-title="Sistem Reservasi Fasilitas Kampus"
-                  data-img="assets/reservasikampus.png"
-                  data-desc="Platform digital untuk mengelola pemesanan ruang kuliah, laboratorium, dan aula kampus secara transparan dan real-time dengan validasi status langsung."
-                  data-meta="Tech Stack: PHP, Laravel, MySQL, HTML5/CSS3, JavaScript • Status: Implemented"
-                >
-                  🔍 INSPECT DATA
-                </button>
-              </div>
-            </div>
-          </div>
 
-          <!-- Project Cartridge 4: KimiAR -->
-          <div class="project-cartridge">
-            <div class="cartridge-screen">
-              <img src="assets/kimiar.png" alt="KimiAR - AR Chemistry Learning" />
-              <span class="cartridge-stage-tag">STAGE 04</span>
-            </div>
-            <div class="cartridge-content">
-              <div>
-                <h3 class="project-name">KimiAR</h3>
-                <p class="project-summary">
-                  Media Pembelajaran Kimia berbasis Augmented Reality (AR) yang interaktif dan menyenangkan. Dibangun dengan Unity 6.4 untuk platform Android.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">Unity 6.4</span>
-                  <span class="project-tag">C#</span>
-                  <span class="project-tag">Augmented Reality</span>
-                  <span class="project-tag">Android APK</span>
+                <div class="meta-field">
+                  <div class="meta-label">Position / Role</div>
+                  <div class="meta-value">Full-Stack Web Developer (PKL Squad)</div>
                 </div>
-              </div>
-              <div class="project-actions">
-                <button
-                  class="pixel-btn pixel-btn-sm inspect-btn"
-                  data-title="KimiAR - Media Pembelajaran Kimia AR"
-                  data-img="assets/kimiar.png"
-                  data-desc="Aplikasi mobile berbasis Augmented Reality untuk memvisualisasikan struktur molekul dan reaksi kimia secara interaktif 3D. Dibangun menggunakan Unity 6.4 dengan fitur Mulai Permainan, Panduan, dan konten edukasi kimia yang gamified."
-                  data-meta="Tech Stack: Unity 6.4, C#, Vuforia AR Engine, Android APK • Status: Completed"
-                >
-                  🔍 INSPECT DATA
-                </button>
-              </div>
-            </div>
-          </div>
 
-          <!-- Project Cartridge 5: Nongki Mataram -->
-          <div class="project-cartridge">
-            <div class="cartridge-screen">
-              <img src="assets/nongki-mataram.png" alt="Nongki Mataram - Platform Kuliner & Rekomendasi Spot Nongkrong" />
-              <span class="cartridge-stage-tag">STAGE 05</span>
-            </div>
-            <div class="cartridge-content">
-              <div>
-                <h3 class="project-name">Nongki Mataram</h3>
-                <p class="project-summary">
-                  Platform direktori kuliner & kurasi spot nongkrong/cafe nugas aesthetic, WiFi kencang, dan ramah kantong mahasiswa di Kota Mataram, Lombok.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">Web App</span>
-                  <span class="project-tag">Next.js / React</span>
-                  <span class="project-tag">Vercel</span>
-                  <span class="project-tag">Tailwind CSS</span>
-                  <span class="project-tag">Directory Engine</span>
+                <div class="meta-field">
+                  <div class="meta-label">Tech Stack</div>
+                  <div class="meta-value meta-tags-wrap">
+                    <span class="project-tag">PHP / Laravel</span>
+                    <span class="project-tag">MySQL</span>
+                    <span class="project-tag">JavaScript</span>
+                    <span class="project-tag">Enterprise Web</span>
+                  </div>
                 </div>
-              </div>
-              <div class="project-actions">
-                <button
-                  class="pixel-btn pixel-btn-sm inspect-btn"
-                  data-title="Nongki Mataram - Platform Rekomendasi Nongki & Kuliner Mahasiswa"
-                  data-img="assets/nongki-mataram.png"
-                  data-desc="Platform web rekomendasi kuliner dan tempat nongkrong no. 1 di Mataram, Lombok. Mempermudah mahasiswa & anak kos menemukan tempat makan enak, cafe aesthetic untuk nugas dengan banyak colokan & WiFi cepat, filter kawasan, peta lokasi, serta kategori hemat."
-                  data-meta="Tech Stack: Next.js, React, Tailwind CSS, Vercel • Status: Live Production"
-                  data-link="https://nongki-mataram.vercel.app"
-                >
-                  🔍 INSPECT DATA
-                </button>
-                <a
-                  href="https://nongki-mataram.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="pixel-btn pixel-btn-sm pixel-btn-green"
-                  aria-label="Kunjungi Web Nongki Mataram"
-                >
-                  🚀 LIVE DEMO
-                </a>
-              </div>
-            </div>
-          </div>
 
-          <!-- Project Cartridge 6: LaptoWise -->
-          <div class="project-cartridge">
-            <div class="cartridge-screen">
-              <img src="assets/laptopwise.png" alt="LaptoWise — AI-Powered Laptop Recommendation & TCO Advisor" />
-              <span class="cartridge-stage-tag">STAGE 06</span>
-            </div>
-            <div class="cartridge-content">
-              <div>
-                <h3 class="project-name">LaptoWise</h3>
-                <p class="project-summary">
-                  Platform sistem rekomendasi laptop independen berbasis Next.js dengan integrasi Google Gemini API, kalkulasi Total Cost of Ownership (TCO 2–5 tahun), dan estimasi biaya servis berkala.
-                </p>
-                <div class="project-tags">
-                  <span class="project-tag">Web App</span>
-                  <span class="project-tag">Next.js / React</span>
-                  <span class="project-tag">Gemini API</span>
-                  <span class="project-tag">TypeScript</span>
-                  <span class="project-tag">Tailwind CSS</span>
-                  <span class="project-tag">Supabase</span>
-                  <span class="project-tag">Vercel</span>
+                <div class="meta-field">
+                  <div class="meta-label">Publication Link</div>
+                  <div class="meta-value meta-actions-wrap">
+                    <p class="meta-sublink">PT PLN Indonesia Power UBP Jeranjang</p>
+                    <button
+                      class="pixel-btn pixel-btn-sm inspect-btn"
+                      data-title="WMS PLN (Warehouse Management System)"
+                      data-img="assets/wms-pln.png"
+                      data-desc="Aplikasi manajemen pergudangan komprehensif untuk mendukung efisiensi alur keluar-masuk barang, pencatatan stock opname, dan laporan audit logistik PLN. Dikembangkan saat Praktik Kerja Lapangan (PKL) di PT PLN Indonesia Power UBP Jeranjang menggunakan stack PHP/Laravel, MySQL, dan JavaScript."
+                      data-meta="Tech Stack: PHP, Laravel, MySQL, JavaScript • Status: Deployed (PT PLN Indonesia Power UBP Jeranjang)"
+                    >
+                      🔍 INSPECT DATA
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div class="project-actions">
-                <button
-                  class="pixel-btn pixel-btn-sm inspect-btn"
-                  data-title="LaptoWise — AI-Powered Laptop Recommendation & TCO Advisor"
-                  data-img="assets/laptopwise.png"
-                  data-desc="Platform web cerdas independen tanpa sponsor merek berbasis Next.js untuk memilih laptop berdasarkan data spesifikasi riil dan kalkulasi Total Cost of Ownership (TCO 2–5 tahun mencakup biaya pasta termal, servis kipas, baterai, & nilai sisa depresiasi). Terintegrasi penuh dengan Google Gemini API (AI Advisor) untuk konsultasi interaktif serta kalkulator jadwal perawatan hardware."
-                  data-meta="Tech Stack: Next.js 16, React 19, TypeScript, Google Gemini API, Supabase, Tailwind CSS, Vercel • Status: Live Production"
-                  data-link="https://laptopwise01.vercel.app/"
-                >
-                  🔍 INSPECT DATA
-                </button>
-                <a
-                  href="https://laptopwise01.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="pixel-btn pixel-btn-sm pixel-btn-green"
-                  aria-label="Kunjungi Web LaptoWise (Live Demo)"
-                >
-                  🚀 LIVE DEMO
-                </a>
+
+              <!-- Right Column: Description & Visuals -->
+              <div class="project-main-col">
+                <div class="project-desc-header">
+                  <div class="desc-content-box">
+                    <div class="meta-label">Project Description</div>
+                    <p class="project-desc-paragraph">
+                      Aplikasi manajemen pergudangan komprehensif untuk mendukung efisiensi alur keluar-masuk barang, pencatatan stock opname, dan laporan audit logistik PLN. Dikembangkan saat Praktik Kerja Lapangan (PKL) di PT PLN Indonesia Power UBP Jeranjang menggunakan stack PHP/Laravel, MySQL, dan JavaScript.
+                    </p>
+                  </div>
+                  <div class="project-counter-box">
+                    <span class="counter-text">Project 1 of 6</span>
+                  </div>
+                </div>
+
+                <div class="project-visual-frame">
+                  <div
+                    class="visual-main-box inspect-btn"
+                    data-title="WMS PLN - Dashboard Utama"
+                    data-img="assets/wms-pln.png"
+                    data-desc="Tampilan antarmuka dashboard pengelolaan inventaris pergudangan logistik PT PLN Indonesia Power UBP Jeranjang."
+                    data-meta="Tech Stack: PHP, Laravel, MySQL, JavaScript • Status: Deployed"
+                    title="Klik untuk memperbesar tampilan"
+                  >
+                    <img src="assets/wms-pln.png" alt="WMS PLN Screenshot" class="visual-main-img" />
+                    <span class="visual-hover-hint">🔍 PERBESAR TAMPILAN</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            </article>
+
+            <!-- Slide 2: ASAK (Aksara Sasak AR) -->
+            <article class="project-slide-card" data-stage="2" id="project-slide-2">
+              <div class="project-meta-col">
+                <div class="meta-field">
+                  <div class="meta-label">Project Title</div>
+                  <div class="meta-value meta-title">ASAK (Aksara Sasak Augmented Reality)</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Year Accomplished</div>
+                  <div class="meta-value">2025</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Position / Role</div>
+                  <div class="meta-value">Lead AR Developer & Unity Programmer</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Tech Stack</div>
+                  <div class="meta-value meta-tags-wrap">
+                    <span class="project-tag">Unity 3D</span>
+                    <span class="project-tag">C#</span>
+                    <span class="project-tag">Vuforia AR</span>
+                    <span class="project-tag">Android SDK</span>
+                  </div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Publication Link</div>
+                  <div class="meta-value meta-actions-wrap">
+                    <p class="meta-sublink">HKI Kemenkumham: 000788321 • Juara Inovasi Daerah</p>
+                    <button
+                      class="pixel-btn pixel-btn-sm inspect-btn"
+                      data-title="ASAK - Media Aksara Sasak AR"
+                      data-img="assets/asak.png"
+                      data-desc="Inovasi pembelajaran interaktif berbasis AR untuk mempermudah generasi muda mengenal, menulis, dan melestarikan Aksara Sasak. Meraih Juara II Inovasi Daerah Kota Mataram 2025 dan Juara BudayaGo! 2025. Terdaftar resmi HKI Kemenkumham RI."
+                      data-meta="Tech Stack: Unity 3D, C#, Vuforia AR, Android SDK • Status: Terdaftar HKI"
+                    >
+                      🔍 INSPECT DATA
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-main-col">
+                <div class="project-desc-header">
+                  <div class="desc-content-box">
+                    <div class="meta-label">Project Description</div>
+                    <p class="project-desc-paragraph">
+                      Media Edukasi dan Pelestarian Aksara Tradisional Sasak berbasis teknologi Augmented Reality (AR) yang interaktif bagi pelajar dan masyarakat. Meraih Juara II Inovasi Daerah Kota Mataram 2025 dan Juara BudayaGo! 2025. Terdaftar resmi HKI Kemenkumham RI.
+                    </p>
+                  </div>
+                  <div class="project-counter-box">
+                    <span class="counter-text">Project 2 of 6</span>
+                  </div>
+                </div>
+
+                <div class="project-visual-frame">
+                  <div
+                    class="visual-main-box inspect-btn"
+                    data-title="ASAK - 3D Augmented Reality Interface"
+                    data-img="assets/asak.png"
+                    data-desc="Tampilan visual dan pelacakan 3D Augmented Reality aplikasi ASAK pada perangkat mobile Android."
+                    data-meta="Engine: Unity 3D & Vuforia AR Engine • Status: Terdaftar HKI"
+                    title="Klik untuk memperbesar tampilan"
+                  >
+                    <img src="assets/asak.png" alt="ASAK AR Screen" class="visual-main-img" />
+                    <span class="visual-hover-hint">🔍 PERBESAR TAMPILAN</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 3: RESERVASI KAMPUS -->
+            <article class="project-slide-card" data-stage="3" id="project-slide-3">
+              <div class="project-meta-col">
+                <div class="meta-field">
+                  <div class="meta-label">Project Title</div>
+                  <div class="meta-value meta-title">Reservasi Fasilitas Kampus FT-UNRAM</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Year Accomplished</div>
+                  <div class="meta-value">2024</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Position / Role</div>
+                  <div class="meta-value">Backend & Full-Stack Developer</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Tech Stack</div>
+                  <div class="meta-value meta-tags-wrap">
+                    <span class="project-tag">PHP / Laravel</span>
+                    <span class="project-tag">MySQL</span>
+                    <span class="project-tag">HTML5 / CSS3</span>
+                    <span class="project-tag">Booking Engine</span>
+                  </div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Publication Link</div>
+                  <div class="meta-value meta-actions-wrap">
+                    <p class="meta-sublink">Fakultas Teknik Universitas Mataram</p>
+                    <button
+                      class="pixel-btn pixel-btn-sm inspect-btn"
+                      data-title="Sistem Reservasi Fasilitas Kampus"
+                      data-img="assets/reservasikampus.png"
+                      data-desc="Platform digital untuk mengelola pemesanan ruang kuliah, laboratorium, dan aula kampus secara transparan dan real-time dengan validasi status langsung."
+                      data-meta="Tech Stack: PHP, Laravel, MySQL, HTML5/CSS3, JavaScript • Status: Implemented"
+                    >
+                      🔍 INSPECT DATA
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-main-col">
+                <div class="project-desc-header">
+                  <div class="desc-content-box">
+                    <div class="meta-label">Project Description</div>
+                    <p class="project-desc-paragraph">
+                      Sistem informasi manajemen peminjaman ruangan dan fasilitas kampus secara real-time untuk mencegah konflik jadwal perkuliahan, praktikum laboratorium, dan kegiatan ormawa dengan alur verifikasi birokrasi digital transparan.
+                    </p>
+                  </div>
+                  <div class="project-counter-box">
+                    <span class="counter-text">Project 3 of 6</span>
+                  </div>
+                </div>
+
+                <div class="project-visual-frame">
+                  <div
+                    class="visual-main-box inspect-btn"
+                    data-title="Sistem Reservasi Fasilitas Kampus"
+                    data-img="assets/reservasikampus.png"
+                    data-desc="Platform digital reservasi ruangan kuliah dan aula kampus FT-UNRAM."
+                    data-meta="Tech Stack: PHP, Laravel, MySQL, JavaScript"
+                    title="Klik untuk memperbesar tampilan"
+                  >
+                    <img src="assets/reservasikampus.png" alt="Reservasi Kampus Interface" class="visual-main-img" />
+                    <span class="visual-hover-hint">🔍 PERBESAR TAMPILAN</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 4: KimiAR -->
+            <article class="project-slide-card" data-stage="4" id="project-slide-4">
+              <div class="project-meta-col">
+                <div class="meta-field">
+                  <div class="meta-label">Project Title</div>
+                  <div class="meta-value meta-title">KimiAR — Media Edukasi Kimia AR</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Year Accomplished</div>
+                  <div class="meta-value">2025</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Position / Role</div>
+                  <div class="meta-value">AR & Game Logic Developer (Unity 6.4)</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Tech Stack</div>
+                  <div class="meta-value meta-tags-wrap">
+                    <span class="project-tag">Unity 6.4</span>
+                    <span class="project-tag">C#</span>
+                    <span class="project-tag">Augmented Reality</span>
+                    <span class="project-tag">Android APK</span>
+                  </div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Publication Link</div>
+                  <div class="meta-value meta-actions-wrap">
+                    <p class="meta-sublink">Android Build Release (APK)</p>
+                    <button
+                      class="pixel-btn pixel-btn-sm inspect-btn"
+                      data-title="KimiAR - Media Pembelajaran Kimia AR"
+                      data-img="assets/kimiar.png"
+                      data-desc="Aplikasi mobile berbasis Augmented Reality untuk memvisualisasikan struktur molekul dan reaksi kimia secara interaktif 3D. Dibangun menggunakan Unity 6.4 dengan fitur Mulai Permainan, Panduan, dan konten edukasi kimia yang gamified."
+                      data-meta="Tech Stack: Unity 6.4, C#, Vuforia AR Engine, Android APK • Status: Completed"
+                    >
+                      🔍 INSPECT DATA
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-main-col">
+                <div class="project-desc-header">
+                  <div class="desc-content-box">
+                    <div class="meta-label">Project Description</div>
+                    <p class="project-desc-paragraph">
+                      Media Pembelajaran Kimia berbasis Augmented Reality (AR) yang interaktif dan menyenangkan. Dibangun dengan Unity 6.4 untuk platform Android dengan fitur Mulai Permainan, Panduan, dan visualisasi molekul interaktif 3D.
+                    </p>
+                  </div>
+                  <div class="project-counter-box">
+                    <span class="counter-text">Project 4 of 6</span>
+                  </div>
+                </div>
+
+                <div class="project-visual-frame">
+                  <div
+                    class="visual-main-box inspect-btn"
+                    data-title="KimiAR - Unity 6 Workspace & Interface"
+                    data-img="assets/kimiar.png"
+                    data-desc="Tampilan environment pengembangan Unity 6.4 dan UI aplikasi KimiAR untuk Android."
+                    data-meta="Tech Stack: Unity 6.4, C#, Vuforia AR"
+                    title="Klik untuk memperbesar tampilan"
+                  >
+                    <img src="assets/kimiar.png" alt="KimiAR Project Screen" class="visual-main-img" />
+                    <span class="visual-hover-hint">🔍 PERBESAR TAMPILAN</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 5: Nongki Mataram -->
+            <article class="project-slide-card" data-stage="5" id="project-slide-5">
+              <div class="project-meta-col">
+                <div class="meta-field">
+                  <div class="meta-label">Project Title</div>
+                  <div class="meta-value meta-title">Nongki Mataram — Kuliner & Spot Nugas</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Year Accomplished</div>
+                  <div class="meta-value">2026</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Position / Role</div>
+                  <div class="meta-value">Frontend & Next.js Developer</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Tech Stack</div>
+                  <div class="meta-value meta-tags-wrap">
+                    <span class="project-tag">Web App</span>
+                    <span class="project-tag">Next.js / React</span>
+                    <span class="project-tag">Vercel</span>
+                    <span class="project-tag">Tailwind CSS</span>
+                    <span class="project-tag">Directory Engine</span>
+                  </div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Publication Link</div>
+                  <div class="meta-value meta-actions-wrap">
+                    <a
+                      href="https://nongki-mataram.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="meta-sublink meta-link-glow"
+                    >
+                      https://nongki-mataram.vercel.app ↗
+                    </a>
+                    <div class="btn-group-row">
+                      <button
+                        class="pixel-btn pixel-btn-sm inspect-btn"
+                        data-title="Nongki Mataram - Platform Rekomendasi Nongki & Kuliner Mahasiswa"
+                        data-img="assets/nongki-mataram.png"
+                        data-desc="Platform web rekomendasi kuliner dan tempat nongkrong no. 1 di Mataram, Lombok. Mempermudah mahasiswa & anak kos menemukan tempat makan enak, cafe aesthetic untuk nugas dengan banyak colokan & WiFi cepat, filter kawasan, peta lokasi, serta kategori hemat."
+                        data-meta="Tech Stack: Next.js, React, Tailwind CSS, Vercel • Status: Live Production"
+                        data-link="https://nongki-mataram.vercel.app"
+                      >
+                        🔍 INSPECT DATA
+                      </button>
+                      <a
+                        href="https://nongki-mataram.vercel.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="pixel-btn pixel-btn-sm pixel-btn-green"
+                        aria-label="Kunjungi Web Nongki Mataram"
+                      >
+                        🚀 LIVE DEMO
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-main-col">
+                <div class="project-desc-header">
+                  <div class="desc-content-box">
+                    <div class="meta-label">Project Description</div>
+                    <p class="project-desc-paragraph">
+                      Platform direktori kuliner & kurasi spot nongkrong/cafe nugas aesthetic, WiFi kencang, dan ramah kantong mahasiswa di Kota Mataram, Lombok. Mempermudah mahasiswa & anak kos menemukan tempat makan enak dan filter fasilitas lengkap.
+                    </p>
+                  </div>
+                  <div class="project-counter-box">
+                    <span class="counter-text">Project 5 of 6</span>
+                  </div>
+                </div>
+
+                <div class="project-visual-frame">
+                  <div
+                    class="visual-main-box inspect-btn"
+                    data-title="Nongki Mataram - Web Platform"
+                    data-img="assets/nongki-mataram.png"
+                    data-desc="Tampilan beranda utama platform direktori kuliner Nongki Mataram."
+                    data-meta="Tech Stack: Next.js, React, Tailwind CSS, Vercel"
+                    data-link="https://nongki-mataram.vercel.app"
+                    title="Klik untuk memperbesar tampilan"
+                  >
+                    <img src="assets/nongki-mataram.png" alt="Nongki Mataram Homepage" class="visual-main-img" />
+                    <span class="visual-hover-hint">🔍 PERBESAR TAMPILAN</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Slide 6: LaptoWise -->
+            <article class="project-slide-card" data-stage="6" id="project-slide-6">
+              <div class="project-meta-col">
+                <div class="meta-field">
+                  <div class="meta-label">Project Title</div>
+                  <div class="meta-value meta-title">LaptoWise — AI-Powered Laptop & TCO Advisor</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Year Accomplished</div>
+                  <div class="meta-value">2026</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Position / Role</div>
+                  <div class="meta-value">Full-Stack Developer & AI Integrator</div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Tech Stack</div>
+                  <div class="meta-value meta-tags-wrap">
+                    <span class="project-tag">Web App</span>
+                    <span class="project-tag">Next.js 16</span>
+                    <span class="project-tag">Gemini API</span>
+                    <span class="project-tag">TypeScript</span>
+                    <span class="project-tag">Tailwind CSS</span>
+                    <span class="project-tag">Supabase</span>
+                    <span class="project-tag">Vercel</span>
+                  </div>
+                </div>
+
+                <div class="meta-field">
+                  <div class="meta-label">Publication Link</div>
+                  <div class="meta-value meta-actions-wrap">
+                    <a
+                      href="https://laptopwise01.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="meta-sublink meta-link-glow"
+                    >
+                      https://laptopwise01.vercel.app/ ↗
+                    </a>
+                    <div class="btn-group-row">
+                      <button
+                        class="pixel-btn pixel-btn-sm inspect-btn"
+                        data-title="LaptoWise — AI-Powered Laptop Recommendation & TCO Advisor"
+                        data-img="assets/laptopwise.png"
+                        data-desc="Platform web cerdas independen tanpa sponsor merek berbasis Next.js untuk memilih laptop berdasarkan data spesifikasi riil dan kalkulasi Total Cost of Ownership (TCO 2–5 tahun mencakup biaya pasta termal, servis kipas, baterai, & nilai sisa depresiasi). Terintegrasi penuh dengan Google Gemini API (AI Advisor) untuk konsultasi interaktif serta kalkulator jadwal perawatan hardware."
+                        data-meta="Tech Stack: Next.js 16, React 19, TypeScript, Google Gemini API, Supabase, Tailwind CSS, Vercel • Status: Live Production"
+                        data-link="https://laptopwise01.vercel.app/"
+                      >
+                        🔍 INSPECT DATA
+                      </button>
+                      <a
+                        href="https://laptopwise01.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="pixel-btn pixel-btn-sm pixel-btn-green"
+                        aria-label="Kunjungi Web LaptoWise (Live Demo)"
+                      >
+                        🚀 LIVE DEMO
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-main-col">
+                <div class="project-desc-header">
+                  <div class="desc-content-box">
+                    <div class="meta-label">Project Description</div>
+                    <p class="project-desc-paragraph">
+                      Sistem rekomendasi laptop independen tanpa sponsor merek berbasis Next.js dengan integrasi Google Gemini API, kalkulasi Total Cost of Ownership (TCO 2–5 tahun), analisis algoritma deterministik 5 dimensi hardware (0–100% skor normalisasi), dan estimasi biaya servis berkala.
+                    </p>
+                  </div>
+                  <div class="project-counter-box">
+                    <span class="counter-text">Project 6 of 6</span>
+                  </div>
+                </div>
+
+                <div class="project-visual-frame">
+                  <div
+                    class="visual-main-box inspect-btn"
+                    data-title="LaptoWise — Hardware & TCO Advisor"
+                    data-img="assets/laptopwise.png"
+                    data-desc="Tampilan beranda utama platform LaptoWise: Hardware & TCO Advisor dengan integrasi AI Advisor Google Gemini API."
+                    data-meta="Tech Stack: Next.js 16, React 19, TypeScript, Gemini API, Supabase, Tailwind CSS, Vercel"
+                    data-link="https://laptopwise01.vercel.app/"
+                    title="Klik untuk memperbesar tampilan"
+                  >
+                    <img src="assets/laptopwise.png" alt="LaptoWise Interface" class="visual-main-img" />
+                    <span class="visual-hover-hint">🔍 PERBESAR TAMPILAN</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
           </div>
         </div>
       </section>
