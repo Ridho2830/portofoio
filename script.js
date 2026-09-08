@@ -232,6 +232,8 @@ function openModal(title, mediaSrc, desc, meta, link) {
       modalLinkBtn.href = link;
       if (link.includes('dicoding.com')) {
         modalLinkBtn.textContent = '🎓 VERIFIKASI KREDENSIAL DICODING';
+      } else if (link.includes('github.com')) {
+        modalLinkBtn.textContent = '💻 LIHAT REPOSITORY GITHUB';
       } else {
         modalLinkBtn.textContent = '🚀 BUKA WEBSITE (LIVE)';
       }
